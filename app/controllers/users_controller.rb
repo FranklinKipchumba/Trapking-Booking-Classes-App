@@ -11,12 +11,14 @@ class UsersController < ApplicationController
         render json: user
     end
     def create
-        user = User.new(users_params)
+        user = User.new(user_params)
+        user.role = params[:role] 
         if user.save
-            token = JWT.encode({ user_id: user.id}, "secret")
-            render json: {user: user, token: token}, status: :created
+          token = JWT.encode({ user_id: user.id, role: user.role }, "secret")
+          user.role = params[:role] 
+          render json: { user: user, token: token }, status: :created
         else
-            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
     end
     def reset_password
