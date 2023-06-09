@@ -5,6 +5,9 @@ ruby "2.7.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
+gem "faker"
+gem "rack-cors"
+gem 'diff-lcs', '~> 1.5'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -15,8 +18,20 @@ gem "sqlite3", "~> 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
+
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails"
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+#set up the swagger docs.
+gem 'rswag'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -25,7 +40,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -53,6 +68,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'jwt'
 end
 
 group :test do
@@ -60,4 +76,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'pg', '~> 1.2'
 end
