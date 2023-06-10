@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import '../css/loginform.css'
+import '../css/Login.css'
 
 function Login({ setEmail, setPassword, handleSubmit, email, password }) {
 
